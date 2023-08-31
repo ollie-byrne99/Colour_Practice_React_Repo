@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const Colour = () => {
     const [colours, setColours] = useState(["red", "blue", "green"]);
@@ -18,7 +18,7 @@ const Colour = () => {
             <ul>
                 {colours.map((color, index) => (
                     <li key={index} style={{ background: color, padding: "10px", margin: "5px" }}>
-                        <Link to={`/colours/${color}`} style={{ color: 'white', textDecoration: 'none' }}>
+                        <Link to={`${color}`} style={{ color: 'white', textDecoration: 'none' }}>
                             {color}
                         </Link>
                     </li>
@@ -31,6 +31,8 @@ const Colour = () => {
                 onChange={(e) => setNewColour(e.target.value)} 
             />
             <button onClick={addColour}>Add Colour</button>
+            
+            <Outlet />   { }
         </div>
     );
 }

@@ -8,8 +8,9 @@ const App = () => {
     <div>
       <Routes>
         <Route path="/" element={<Pages.Home />} />
-        <Route path="/colours" element={<Pages.Colour />} />
-        <Route path="/colours/:color" element={<Pages.ColourDetail />} />
+        <Route path="/colours" element={<Pages.Colour />}>
+            <Route path=":color" element={<Pages.ColourDetail />} />
+        </Route>
         <Route path="*" element={<Pages.NotFound />} />
       </Routes>
     </div>
